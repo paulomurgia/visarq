@@ -130,13 +130,13 @@ namespace visarq
                         lInf = lInf + 1 > 0 ? lSup + 1 : lInf + 1;
                         lSup = lSup + 1 > iPage ? lSup + iPage + 1 : iPage;
 
-                        if (lSup > linhas.Count)
+                        //if (lSup > linhas.Count)
+                        if (linhas.Count < iBuffer)
                         {                            
                             lSup = linhas.Count - 1;
                             lInf = lSup - iPage;
                         }
-
-                        if (lSup > iBuffer)
+                        else if (lSup > iBuffer)
                         {
                             j++;
                             iPosicaoArq += lInf;
@@ -146,8 +146,7 @@ namespace visarq
 
                             lInf = lInf + 1 > 0 ? lSup + 1 : lInf + 1;
                             lSup = lSup + 1 > iPage ? lSup + iPage + 1 : iPage;
-                        }
-
+                        }                        
                         break;
 
                     case PageUp:
